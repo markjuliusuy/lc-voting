@@ -70,8 +70,8 @@
             </div>
         </div> <!-- end buttons-container -->
 
-        <div class="comments-container space-y-6 ml-24 my-8 relative">
-            <div class="comment-container bg-white rounded-xl flex">
+        <div class="comments-container space-y-6 ml-24 my-8 relative mt-1 pt-4">
+            <div class="comment-container bg-white rounded-xl flex relative">
                 <div class="flex flex-1 px-4 py-6">
                     <div class="flex-none">
                         <a href="#">
@@ -105,7 +105,7 @@
                 </div>
             </div> <!-- end comment-container -->
 
-            <div class="comment-container bg-white rounded-xl flex">
+            <div class="is-admin comment-container bg-white rounded-xl flex relative">
                 <div class="flex flex-1 px-4 py-6">
                     <div class="flex-none">
                         <a href="#">
@@ -140,7 +140,7 @@
                 </div>
             </div> <!-- end comment-container -->
 
-            <div class="comment-container bg-white rounded-xl flex">
+            <div class="comment-container bg-white rounded-xl flex relative">
                 <div class="flex flex-1 px-4 py-6">
                     <div class="flex-none">
                         <a href="#">
