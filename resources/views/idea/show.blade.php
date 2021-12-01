@@ -17,16 +17,16 @@
                 </div>
                 <div class="w-full mx-2 md:mx-4">
                     <h4 class="text-xl font-semibold">
-                        <a href="#" class="hover:underline">A random title can go here</a>
+                        <a href="#" class="hover:underline">{{ $idea->title }}</a>
                     </h4>
                     <div class="text-gray-600 mt-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptate quisquam consequatur deleniti dolore reprehenderit tempore non. Totam, nobis, ipsam dolore ab praesentium hic rerum ipsum perferendis vitae error cumque! Quae beatae, dolores culpa mollitia repellat vel architecto consectetur in blanditiis impedit illo, pariatur facere minus earum labore incidunt dolorem harum sequi facilis. Voluptatum, ipsa? Quis deserunt et magnam fugit dolorum nisi repellat temporibus totam atque! Totam enim earum quas facere maiores alias asperiores voluptate! Ad expedita totam provident asperiores similique vero alias ducimus culpa beatae facilis dolore nobis ab veniam, maxime voluptatibus dolorem repellendus eius harum nam hic! Illum?
+                        {{ $idea->description }}
                     </div>
                     <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                         <div class="flex items-center text-xs  text-gray-400 font-semibold space-x-2">
-                            <div class="hidden md:block font-bold text-gray-900">John Doe</div>
+                            <div class="hidden md:block font-bold text-gray-900">{{ $idea->user->name }}</div>
                             <div class="hidden md:block">&bull;</div>
-                            <div>10 hours ago</div>
+                            <div>{{ $idea->created_at->diffForHumans() }}</div>
                             <div>&bull;</div>
                             <div>Category 1</div>
                             <div>&bull;</div>
