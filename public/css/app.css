@@ -25946,7 +25946,7 @@ select {
   display: block;
   top: 0;
   left: -40px;
-  content: "";
+  content: '';
   width: 3px;
   height: 100%;
   background: #edf0f5;
@@ -25956,7 +25956,7 @@ select {
 .comment-container::before {
   position: absolute;
   top: 57px;
-  content: "";
+  content: '';
   width: 23px;
   height: 3px;
   background: #edf0f5;
@@ -25969,7 +25969,7 @@ select {
   display: block;
   top: 60px;
   left: -40px;
-  content: "";
+  content: '';
   width: 3px;
   height: calc(100% - 60px);
   background: #f7f8fc;
@@ -25991,10 +25991,44 @@ select {
   border-width: 1px;
   border-image-source: linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
   border-image-slice: 1;
-  background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff),
+        linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
   background-origin: border-box;
   background-clip: content-box, border-box;
   border-color: transparent;
+}
+
+.open {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+}
+
+.considering {
+  --tw-bg-opacity: 1;
+  background-color: rgba(139, 96, 237, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.in-progress {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 199, 60, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.implemented {
+  --tw-bg-opacity: 1;
+  background-color: rgba(26, 171, 139, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.closed {
+  --tw-bg-opacity: 1;
+  background-color: rgba(236, 69, 79, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -151446,3 +151480,4 @@ select {
     -webkit-line-clamp: unset;
   }
 }
+
