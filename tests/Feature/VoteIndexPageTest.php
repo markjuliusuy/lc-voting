@@ -77,10 +77,35 @@ class VoteIndexPageTest extends TestCase
     }
 
     /** @test */
-    public function votes_count_shows_correctly_on_index_page_livewire_component()
+    public function user_who_is_not_logged_in_is_redirected_to_login_page_when_trying_to_vote()
     {
         $user = User::factory()->create();
 
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open']);
+
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'title' => 'My First Idea',
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'description' => 'Description of my first idea'
+        ]);
+    
+        Livewire::test(IdeaIndex::class, [
+                'idea' => $idea,
+                'votesCount' => 5  
+            ])
+            ->call('vote')
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+    public function user_who_is_logged_in_can_vote_for_idea()
+    {
+        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
@@ -95,12 +120,18 @@ class VoteIndexPageTest extends TestCase
             'description' => 'Description of my first idea'
         ]);
 
-        Livewire::test(IdeaIndex::class, [
-            'idea' => $idea,
-            'votesCount' => 5
-        ])
-        ->assertSet('votesCount', 5)
-        ->assertSeeHtml('<div class="font-semibold text-2xl ">5</div>')
-        ->assertSeeHtml('<div class="text-sm font-bold leading-none ">5</div>');
+        $this->assertDatabaseMissing('votes', [
+            'user_id' => $user->id,
+            'idea_id' => $idea->id
+        ]);
+    
+        Livewire::actingAs($user)
+            ->test(IdeaIndex::class, [
+                'idea' => $idea,
+                'votesCount' => 5  
+            ])
+            ->call('vote')
+            ->assertSet('votesCount', 6)
+            ->assert;
     }
 }
