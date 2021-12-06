@@ -103,43 +103,6 @@ class VoteShowPageTest extends TestCase
     }
 
     /** @test */
-    public function user_who_is_logged_in_shows_voted_if_idea_already_voted_for()
-    {
-        $user = User::factory()->create();
-
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'title' => 'My First Idea',
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'description' => 'Description of my first idea'
-        ]);
-        
-        Vote::factory()->create([
-        'idea_id' => $idea->id,
-        'user_id' => $user->id
-        ]);
-
-        $response = $this->actingAs($user)->get(route('idea.index'));
-
-        $ideaWithVotes = $response['ideas']->items()[0];
-
-        Livewire::actingAs($user)
-            ->test(IdeaShow::class, [
-                'idea' => $ideaWithVotes,
-                'votesCount' => 5  
-            ])
-            ->assertSet('hasVoted', true)
-            ->assertSee('Voted');
-    }
-
-    /** @test */
     public function user_who_is_not_logged_in_is_redirected_to_login_page_when_trying_to_vote()
     {
         $user = User::factory()->create();
