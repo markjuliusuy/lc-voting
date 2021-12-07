@@ -185,7 +185,7 @@ class OtherFiltersTest extends TestCase
             ->assertVIewHas('ideas', function ($ideas) {
                 return $ideas->count() === 2
                     && $ideas->first()->title === 'My Second Idea'
-                    && $ideas->first()->title === 'My First Idea';
+                    && $ideas->get(1)->title === 'My First Idea';
             });
     }
 
