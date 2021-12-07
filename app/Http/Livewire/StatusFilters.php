@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class StatusFilters extends Component
 {
-    public $status;
+    public $status = 'All';
     public $statusCount;
 
     public function mount()
