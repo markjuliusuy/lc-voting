@@ -1,4 +1,4 @@
-<div class="idea-and-buttons container">
+<div class="idea-and-buttons container mt-4">
     <div class="idea-container bg-white rounded-xl flex">
         <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
                 <div class="flex-none mx-4">
