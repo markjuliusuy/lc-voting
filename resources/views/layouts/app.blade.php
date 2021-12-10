@@ -52,7 +52,7 @@
             </div>
             @endif
             <a href="#">
-                <img src="https://en.gravatar.com/userimage/125244904/050fd676badbf4ae4bee43a79533b89a.jpeg"
+                <img src=""
                     class="w-10 h-10 rounded-full" alt="avatar" />
             </a>
         </div>
