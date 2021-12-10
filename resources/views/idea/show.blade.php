@@ -11,6 +11,7 @@
 
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount" />
 
+    <livewire:edit-idea />
 
     <div class="comments-container space-y-6 md:ml-22 pt-4 my-8 mt-1">
         <div class="comment-container bg-white rounded-xl flex relative">
@@ -42,15 +43,16 @@
                             <div>&bull;</div>
                             <div>10 hours ago</div>
                         </div>
-                        <div class="flex items-center space-x-2">
-                            <button x-data="{ isOpen: false }" @click="isOpen = !isOpen"
+                        <div class="flex items-center space-x-2" x-data="{ isOpen: false }" >
+                            <div class="relative"><button @click="isOpen = !isOpen"
                                 class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-4">
                                 <svg fill="currentColor" width="24" height="6">
                                     <path
                                         d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
                                         style="color: rgba(163, 163, 163, .5)">
                                 </svg>
-                                <ul x-cloak x-show="isOpen" x-transition.origin.top.left @click.away="isOpen = false"
+                            </button>
+                            <ul x-cloak x-show="isOpen" x-transition.origin.top.left @click.away="isOpen = false"
                                     @keydown.escape.window="isOpen = false"
                                     class="absolute w-44 font-semibold bg-white shadow-dialog rounded-xl py-3 text-left z-30 md:ml-8 top-8 md:top-6 right-0 md:left-0">
                                     <li><a href="#"
@@ -60,7 +62,7 @@
                                             class="hover:bg-gray-100 block transition duration 150 ease-in px-5 py-3">Delete
                                             Post</a></li>
                                 </ul>
-                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>
