@@ -4,6 +4,11 @@
   x-show="isOpen"
   @keydown.escape.window="isOpen = false"
   @custom-show-edit-modal.window="isOpen = true"
+  x-init="
+    window.livewire.on('ideaWasUpdated', () => {
+      isOpen = false;
+    })
+  "
   class="fixed z-10 inset-0 overflow-y-auto" 
   aria-labelledby="modal-title" 
   role="dialog" aria-modal="true"
@@ -55,7 +60,7 @@
         <h3 class="text-center text-lg font-medium text-gray-900">Edit Idea</h3>
         <p class="text-xs text-center text-gray-500 mt-4 leading-5 px-6">You have one hour to edit your idea from the time you created it.</p>
 
-        <form wire:submit.prevent="createIdea" action="#" method="POST" class="text-sm space-y-4 px-4 py-6">
+        <form wire:submit.prevent="updateIdea" action="#" method="POST" class="text-sm space-y-4 px-4 py-6">
           <div>
               <input wire:model.defer="title" type="text" class="w-full text-sm bg-gray-100 border-none rounded-xl placeholder-gray-900 px-4 py-2" placeholder="Your Idea" required>
               @error('title')
@@ -87,7 +92,7 @@
               </button>
       
               <button type="submit" class="flex items-center justify-center bg-blue text-white w-1/2 h-11 font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3">
-                  <span class="ml-1">Submit</span>
+                  <span class="ml-1">Update</span>
               </button>
           </div>
 
