@@ -19,6 +19,12 @@
         <livewire:delete-idea :idea="$idea" />
     @endcan
 
+    <livewire:mark-idea-as-spam :idea="$idea" />
+
+    @admin
+        <livewire:mark-idea-as-not-spam :idea="$idea" />
+    @endadmin
+
 
     <div class="comments-container space-y-6 md:ml-22 pt-4 my-8 mt-1">
         <div class="comment-container bg-white rounded-xl flex relative">
