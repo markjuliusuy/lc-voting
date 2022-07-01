@@ -19,8 +19,10 @@
         <livewire:delete-idea :idea="$idea" />
     @endcan
 
+    @auth
     <livewire:mark-idea-as-spam :idea="$idea" />
-
+    @endauth
+    
     @admin
         <livewire:mark-idea-as-not-spam :idea="$idea" />
     @endadmin
